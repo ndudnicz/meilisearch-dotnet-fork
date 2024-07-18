@@ -21,7 +21,8 @@ namespace Meilisearch
     {
         private readonly HttpClient _http;
         private TaskEndpoint _taskEndpoint;
-        public string ApiKey { get; }
+
+        public string ApiKey { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MeilisearchClient"/> class.
@@ -424,6 +425,16 @@ namespace Meilisearch
             }
 
             return _taskEndpoint;
+        }
+
+        /// <summary>
+        /// Set the API Key to the Authorization header.
+        /// </summary>
+        /// <param name="apiKey">API Key.</param>
+        public void SetApiKey(string apiKey)
+        {
+            _http.AddApiKeyToHeader(apiKey);
+            ApiKey = apiKey;
         }
     }
 }

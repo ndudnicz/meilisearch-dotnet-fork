@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 using Meilisearch.Extensions;
 using Meilisearch.QueryParameters;
